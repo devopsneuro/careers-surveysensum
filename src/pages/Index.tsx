@@ -1,6 +1,6 @@
-
 import { useState, useEffect } from 'react';
-import { ChevronDown, Users, Trophy, Heart, MapPin, Clock, DollarSign, Star, Send, Menu, X } from 'lucide-react';
+import { ChevronDown, Users, Trophy, Heart, MapPin, Clock, DollarSign, Star, Send, Menu, X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -116,6 +116,12 @@ const Index = () => {
                   {item}
                 </button>
               ))}
+              <Link
+                to="/opportunities"
+                className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                All Opportunities
+              </Link>
             </div>
 
             <button
@@ -140,6 +146,13 @@ const Index = () => {
                   {item}
                 </button>
               ))}
+              <Link
+                to="/opportunities"
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-600"
+              >
+                All Opportunities
+              </Link>
             </div>
           </div>
         )}
@@ -161,12 +174,12 @@ const Index = () => {
                 Build innovative survey solutions that drive meaningful change.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() => scrollToSection('jobs')}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                <Link
+                  to="/opportunities"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-center"
                 >
                   View Open Positions
-                </button>
+                </Link>
                 <button
                   onClick={() => scrollToSection('culture')}
                   className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-colors"
@@ -223,13 +236,13 @@ const Index = () => {
       <section id="jobs" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Open Positions</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Positions</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Find your next career opportunity and join a team that's passionate about innovation and growth.
+              Get a preview of our current openings. Visit our opportunities page to see all available positions.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {jobs.map((job, index) => (
               <div
                 key={index}
@@ -264,6 +277,16 @@ const Index = () => {
                 </div>
               </div>
             ))}
+          </div>
+          
+          <div className="text-center">
+            <Link
+              to="/opportunities"
+              className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            >
+              View All Opportunities
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
           </div>
         </div>
       </section>
